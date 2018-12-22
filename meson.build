@@ -30,6 +30,7 @@ thread_dep = dependency('threads')
 lib_benchmark = library('gbenchmark',
 			benchmark_sources,
  			include_directories:inc,
+ 			cpp_args : '-DNDEBUG',
  			dependencies : thread_dep)
 
 benchmark_dep = declare_dependency(
@@ -41,4 +42,5 @@ benchmark_dep = declare_dependency(
 lib_benchmark_main = library('benchmark-main',
 			benchmark_main_sources,
  			include_directories:inc,
+ 			cpp_args : '-DNDEBUG',
  			dependencies : benchmark_dep)
