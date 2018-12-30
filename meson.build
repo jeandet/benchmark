@@ -1,6 +1,7 @@
 project('benchmark', 'cpp',
   version : '1.4.1',
-  default_options : ['cpp_std=c++11'])
+  default_options : ['cpp_std=c++11'],
+  license : 'ALv2')
 
 benchmark_sources = [
  'src/benchmark.cc',
