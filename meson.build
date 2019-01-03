@@ -36,8 +36,7 @@ lib_benchmark = library('gbenchmark',
 
 benchmark_dep = declare_dependency(
  			link_with:lib_benchmark,
- 			include_directories:inc,
- 			dependencies : thread_dep
+ 			include_directories:inc
  			)
 
 lib_benchmark_main = library('benchmark-main',
