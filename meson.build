@@ -1,7 +1,7 @@
 project('benchmark', 'cpp',
   version : '1.4.1',
   default_options : ['cpp_std=c++11'],
-  license : 'ALv2')
+  license : 'Apache-2.0')
 
 benchmark_sources = [
  'src/benchmark.cc',
@@ -34,13 +34,18 @@ lib_benchmark = library('gbenchmark',
  			cpp_args : '-DNDEBUG',
  			dependencies : thread_dep)
 
-benchmark_dep = declare_dependency(
+google_benchmark_dep = declare_dependency(
  			link_with:lib_benchmark,
- 			include_directories:inc
+                        include_directories:inc
  			)
 
 lib_benchmark_main = library('benchmark-main',
 			benchmark_main_sources,
  			include_directories:inc,
  			cpp_args : '-DNDEBUG',
- 			dependencies : benchmark_dep)
+ 			dependencies : google_benchmark_dep)
+
+google_benchmark_main_dep = declare_dependency(
+                        link_with:lib_benchmark_main,
+                        include_directories:inc
+                        )
